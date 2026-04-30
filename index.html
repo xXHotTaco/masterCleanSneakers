@@ -11,17 +11,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
+  <link rel="icon" type="image/png" href="img/MasterLogo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="page-shell">
     <header class="topbar" data-reveal>
       <a class="brand-mark" href="#inicio" aria-label="Inicio Master Clean Sneaker">
-        <span class="brand-mark__dot"></span>
-        <span>Master Clean Sneaker</span>
+        <img class="brand-mark__logo" src="img/MasterLogo.png" alt="Master Clean Sneaker">
+        <span class="brand-mark__text">Master Clean Sneaker</span>
       </a>
       <nav class="topbar__nav" aria-label="Principal">
         <a href="#servicios">Servicios</a>
@@ -232,57 +233,158 @@
       <section class="section section--gallery" id="galeria">
         <div class="section__header" data-reveal>
           <span class="eyebrow">Galeria</span>
-          <h2>Un apartado listo para mostrar y cargar tus trabajos realizados.</h2>
+          <h2>Trabajos reales organizados por par para ver el antes y despues.</h2>
           <p>
-            Sube imagenes desde tu equipo para previsualizar como se veran dentro del sitio antes de dejar una galeria definitiva.
+            Aqui ya quedan agrupadas las limpiezas por modelo para que el cambio visual se entienda rapido y se vea mas profesional.
           </p>
         </div>
 
-        <div class="gallery-layout">
-          <aside class="gallery-uploader" data-reveal>
-            <div class="gallery-uploader__top">
-              <span>Portfolio live</span>
-              <span>Subida local</span>
+        <div class="gallery-carousel" data-reveal data-gallery-carousel>
+          <div class="gallery-carousel__top">
+            <div class="gallery-carousel__intro">
+              <span class="gallery-carousel__eyebrow">Resultados reales</span>
+              <h3>Carrusel de trabajos agrupados por cada par.</h3>
             </div>
-            <h3>Agrega fotos recientes de tus limpiezas.</h3>
-            <p>
-              Puedes cargar varias imagenes para revisar el acomodo de la galeria y usar este bloque como base para tus resultados.
-            </p>
-            <div class="gallery-uploader__actions">
-              <label class="button button--dark" for="gallery-upload">Subir imagenes</label>
-              <button class="button button--ghost" id="gallery-reset" type="button">Limpiar vista</button>
+
+            <div class="gallery-carousel__controls" aria-label="Controles del carrusel">
+              <button class="gallery-control" type="button" data-gallery-prev aria-label="Trabajo anterior">
+                Anterior
+              </button>
+              <button class="gallery-control" type="button" data-gallery-next aria-label="Trabajo siguiente">
+                Siguiente
+              </button>
             </div>
-            <input id="gallery-upload" type="file" accept="image/*" multiple hidden>
-            <small>
-              Esta carga funciona como preview en el navegador. Si luego quieres guardar las fotos de forma permanente,
-              se conecta con backend o CMS.
-            </small>
-          </aside>
+          </div>
 
-          <div class="gallery-preview" id="gallery-preview" data-reveal>
-            <article class="gallery-item gallery-item--placeholder">
-              <div class="gallery-item__media gallery-item__media--warm"></div>
-              <div class="gallery-item__copy">
-                <span>Espacio 01</span>
-                <p>Antes y despues de tenis blancos de uso diario.</p>
-              </div>
-            </article>
+          <div class="gallery-window">
+            <div class="gallery-track" id="gallery-track">
+              <article class="gallery-slide is-active" data-gallery-slide>
+                <div class="gallery-slide__summary">
+                  <span class="gallery-slide__label">Nike Blanco</span>
+                  <h3>Limpieza profunda con contraste claro entre antes y despues.</h3>
+                  <p>
+                    Este bloque junta las tomas del par blanco para mostrar suciedad, recuperacion de tono y mejor presencia general.
+                  </p>
+                  <div class="gallery-slide__tags">
+                    <span>Antes</span>
+                    <span>Despues</span>
+                    <span>Tela y suela</span>
+                  </div>
+                </div>
 
-            <article class="gallery-item gallery-item--placeholder">
-              <div class="gallery-item__media gallery-item__media--sage"></div>
-              <div class="gallery-item__copy">
-                <span>Espacio 02</span>
-                <p>Trabajo de gamusa con enfoque en textura y manchas localizadas.</p>
-              </div>
-            </article>
+                <div class="gallery-slide__content">
+                  <section class="gallery-block">
+                    <div class="gallery-block__header">
+                      <span>Antes</span>
+                      <small>2 fotos</small>
+                    </div>
+                    <div class="gallery-block__grid">
+                      <figure class="gallery-photo">
+                        <img src="img/nikeBlancoSucio1.jpg" alt="Nike blanco sucio vista 1">
+                      </figure>
+                      <figure class="gallery-photo">
+                        <img src="img/nikeBlancoSucio2.jpg" alt="Nike blanco sucio vista 2">
+                      </figure>
+                    </div>
+                  </section>
 
-            <article class="gallery-item gallery-item--placeholder gallery-item--wide">
-              <div class="gallery-item__media gallery-item__media--neutral"></div>
-              <div class="gallery-item__copy">
-                <span>Espacio 03</span>
-                <p>Galeria para resultados express, bolsas y pares con rescate visual mas fuerte.</p>
-              </div>
-            </article>
+                  <section class="gallery-block">
+                    <div class="gallery-block__header">
+                      <span>Despues</span>
+                      <small>2 fotos</small>
+                    </div>
+                    <div class="gallery-block__grid">
+                      <figure class="gallery-photo">
+                        <img src="img/nikeBlancoLimpio1.jpg" alt="Nike blanco limpio vista 1">
+                      </figure>
+                      <figure class="gallery-photo">
+                        <img src="img/nikeBlancoLimpio2.jpg" alt="Nike blanco limpio vista 2">
+                      </figure>
+                    </div>
+                  </section>
+                </div>
+              </article>
+
+              <article class="gallery-slide" data-gallery-slide>
+                <div class="gallery-slide__summary">
+                  <span class="gallery-slide__label">Nike Azul</span>
+                  <h3>Comparativa completa del par azul con proceso de rescate visual.</h3>
+                  <p>
+                    Las imagenes quedan juntas por modelo para que se note la diferencia en paneles, color y limpieza general.
+                  </p>
+                  <div class="gallery-slide__tags">
+                    <span>Antes</span>
+                    <span>Despues</span>
+                    <span>Detalle profundo</span>
+                  </div>
+                </div>
+
+                <div class="gallery-slide__content">
+                  <section class="gallery-block">
+                    <div class="gallery-block__header">
+                      <span>Antes</span>
+                      <small>2 fotos</small>
+                    </div>
+                    <div class="gallery-block__grid">
+                      <figure class="gallery-photo">
+                        <img src="img/nikeAzulSucio1.jpg" alt="Nike azul sucio vista 1">
+                      </figure>
+                      <figure class="gallery-photo">
+                        <img src="img/nikeAzulSucio2.jpg" alt="Nike azul sucio vista 2">
+                      </figure>
+                    </div>
+                  </section>
+
+                  <section class="gallery-block">
+                    <div class="gallery-block__header">
+                      <span>Despues</span>
+                      <small>2 fotos</small>
+                    </div>
+                    <div class="gallery-block__grid">
+                      <figure class="gallery-photo">
+                        <img src="img/NikeAzulLimpio1.jpg" alt="Nike azul limpio vista 1">
+                      </figure>
+                      <figure class="gallery-photo">
+                        <img src="img/NikeAzulLimpio2.jpg" alt="Nike azul limpio vista 2">
+                      </figure>
+                    </div>
+                  </section>
+                </div>
+              </article>
+
+              <article class="gallery-slide gallery-slide--single" data-gallery-slide>
+                <div class="gallery-slide__summary">
+                  <span class="gallery-slide__label">Travis</span>
+                  <h3>Trabajo destacado para mostrar acabados premium y detalle visual.</h3>
+                  <p>
+                    Esta pieza funciona como slide especial para destacar pares de mayor impacto dentro de la rotacion del estudio.
+                  </p>
+                  <div class="gallery-slide__tags">
+                    <span>Destacado</span>
+                    <span>Premium</span>
+                    <span>Editorial</span>
+                  </div>
+                </div>
+
+                <div class="gallery-slide__content">
+                  <figure class="gallery-photo gallery-photo--feature">
+                    <img src="img/travis.jpg" alt="Tenis Travis destacado despues del servicio">
+                  </figure>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="gallery-dots" role="tablist" aria-label="Slides de galeria">
+            <button class="gallery-dot is-active" type="button" data-gallery-dot="0" aria-label="Nike Blanco">
+              Nike Blanco
+            </button>
+            <button class="gallery-dot" type="button" data-gallery-dot="1" aria-label="Nike Azul">
+              Nike Azul
+            </button>
+            <button class="gallery-dot" type="button" data-gallery-dot="2" aria-label="Travis">
+              Travis
+            </button>
           </div>
         </div>
       </section>
