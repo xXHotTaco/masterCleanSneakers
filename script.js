@@ -1,73 +1,76 @@
 const year = document.getElementById("year");
-const galleryUpload = document.getElementById("gallery-upload");
-const galleryReset = document.getElementById("gallery-reset");
-const galleryPreview = document.getElementById("gallery-preview");
-const galleryEmptyState = galleryPreview ? galleryPreview.innerHTML : "";
-let galleryObjectUrls = [];
 
 if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-const releaseGalleryUrls = () => {
-  galleryObjectUrls.forEach((url) => URL.revokeObjectURL(url));
-  galleryObjectUrls = [];
-};
+const galleryCarousel = document.querySelector("[data-gallery-carousel]");
 
-const resetGalleryPreview = () => {
-  releaseGalleryUrls();
+if (galleryCarousel) {
+  const galleryWindow = galleryCarousel.querySelector(".gallery-window");
+  const track = galleryCarousel.querySelector(".gallery-track");
+  const slides = Array.from(galleryCarousel.querySelectorAll("[data-gallery-slide]"));
+  const prevButton = galleryCarousel.querySelector("[data-gallery-prev]");
+  const nextButton = galleryCarousel.querySelector("[data-gallery-next]");
+  const dots = Array.from(galleryCarousel.querySelectorAll("[data-gallery-dot]"));
+  const galleryImages = Array.from(galleryCarousel.querySelectorAll("img"));
+  let currentIndex = 0;
 
-  if (galleryPreview) {
-    galleryPreview.innerHTML = galleryEmptyState;
-  }
-
-  if (galleryUpload) {
-    galleryUpload.value = "";
-  }
-};
-
-if (galleryUpload && galleryPreview) {
-  galleryUpload.addEventListener("change", (event) => {
-    const files = Array.from(event.target.files || []).filter((file) =>
-      file.type.startsWith("image/")
-    );
-
-    releaseGalleryUrls();
-
-    if (files.length === 0) {
-      galleryPreview.innerHTML = galleryEmptyState;
+  const syncCarouselHeight = () => {
+    if (!galleryWindow || slides.length === 0) {
       return;
     }
 
-    galleryPreview.innerHTML = "";
+    const activeSlide = slides[currentIndex];
+    galleryWindow.style.height = `${activeSlide.offsetHeight}px`;
+  };
 
-    files.forEach((file, index) => {
-      const url = URL.createObjectURL(file);
-      galleryObjectUrls.push(url);
+  const updateCarousel = (nextIndex) => {
+    if (!track || slides.length === 0) {
+      return;
+    }
 
-      const figure = document.createElement("figure");
-      figure.className = index % 3 === 2 ? "gallery-shot gallery-shot--wide" : "gallery-shot";
+    currentIndex = (nextIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-      const image = document.createElement("img");
-      image.src = url;
-      image.alt = `Trabajo subido ${index + 1}`;
-
-      const caption = document.createElement("figcaption");
-      const slot = document.createElement("span");
-      slot.textContent = `Trabajo ${String(index + 1).padStart(2, "0")}`;
-
-      const copy = document.createElement("p");
-      copy.textContent = file.name;
-
-      caption.append(slot, copy);
-      figure.append(image, caption);
-      galleryPreview.appendChild(figure);
+    slides.forEach((slide, index) => {
+      const isActive = index === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
     });
-  });
-}
 
-if (galleryReset) {
-  galleryReset.addEventListener("click", resetGalleryPreview);
+    dots.forEach((dot, index) => {
+      const isActive = index === currentIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-selected", String(isActive));
+    });
+
+    requestAnimationFrame(syncCarouselHeight);
+  };
+
+  if (prevButton) {
+    prevButton.addEventListener("click", () => updateCarousel(currentIndex - 1));
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => updateCarousel(currentIndex + 1));
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => updateCarousel(index));
+  });
+
+  galleryImages.forEach((image) => {
+    if (image.complete) {
+      return;
+    }
+
+    image.addEventListener("load", syncCarouselHeight);
+  });
+
+  window.addEventListener("resize", syncCarouselHeight);
+
+  updateCarousel(0);
 }
 
 const revealItems = document.querySelectorAll("[data-reveal]");
