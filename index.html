@@ -24,14 +24,73 @@
         <img class="brand-mark__logo" src="img/MasterLogo.png" alt="Master Clean Sneaker">
         <span class="brand-mark__text">Master Clean Sneaker</span>
       </a>
-      <nav class="topbar__nav" aria-label="Principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#trabajos">Trabajos</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="topbar__nav" id="primary-navigation" aria-label="Principal" data-primary-navigation>
+        <a href="#servicios">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 21h16"></path>
+              <path d="M7 21v-8l5-10 5 10v8"></path>
+              <path d="M9 13h6"></path>
+            </svg>
+          </span>
+          Servicios
+        </a>
+        <a href="#trabajos">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 15c3 2 7 3 12 3h3c1.1 0 2-.9 2-2v-1l-5-1-4-5H9l1 4H5c-.6 0-1 .4-1 1v1Z"></path>
+              <path d="M12 13h3"></path>
+            </svg>
+          </span>
+          Trabajos
+        </a>
+        <a href="#galeria">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m7 15 3-3 3 3 2-2 3 3"></path>
+              <circle cx="8" cy="9" r="1"></circle>
+            </svg>
+          </span>
+          Galeria
+        </a>
+        <a href="#proceso">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 7h12"></path>
+              <path d="m13 4 3 3-3 3"></path>
+              <path d="M20 17H8"></path>
+              <path d="m11 14-3 3 3 3"></path>
+            </svg>
+          </span>
+          Proceso
+        </a>
+        <a href="#contacto">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"></path>
+            </svg>
+          </span>
+          Contacto
+        </a>
+        <a class="button button--dark topbar__nav-cta" href="#contacto">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+              <path d="M16 3v4"></path>
+              <path d="M8 3v4"></path>
+              <path d="M4 11h16"></path>
+            </svg>
+          </span>
+          Agenda tu limpieza
+        </a>
       </nav>
-      <a class="button button--dark" href="#contacto">Agenda tu limpieza</a>
+      <a class="button button--dark topbar__cta" href="#contacto">Agenda tu limpieza</a>
     </header>
 
     <main id="inicio">
@@ -280,10 +339,10 @@
                     </div>
                     <div class="gallery-block__grid">
                       <figure class="gallery-photo">
-                        <img src="img/nikeBlancoSucio1.jpg" alt="Nike blanco sucio vista 1">
+                        <img src="img/nikeBlancoSucio1.jpg" alt="Nike blanco sucio vista 1" data-lightbox-image>
                       </figure>
                       <figure class="gallery-photo">
-                        <img src="img/nikeBlancoSucio2.jpg" alt="Nike blanco sucio vista 2">
+                        <img src="img/nikeBlancoSucio2.jpg" alt="Nike blanco sucio vista 2" data-lightbox-image>
                       </figure>
                     </div>
                   </section>
@@ -295,10 +354,10 @@
                     </div>
                     <div class="gallery-block__grid">
                       <figure class="gallery-photo">
-                        <img src="img/nikeBlancoLimpio1.jpg" alt="Nike blanco limpio vista 1">
+                        <img src="img/nikeBlancoLimpio1.jpg" alt="Nike blanco limpio vista 1" data-lightbox-image>
                       </figure>
                       <figure class="gallery-photo">
-                        <img src="img/nikeBlancoLimpio2.jpg" alt="Nike blanco limpio vista 2">
+                        <img src="img/nikeBlancoLimpio2.jpg" alt="Nike blanco limpio vista 2" data-lightbox-image>
                       </figure>
                     </div>
                   </section>
@@ -327,10 +386,10 @@
                     </div>
                     <div class="gallery-block__grid">
                       <figure class="gallery-photo">
-                        <img src="img/nikeAzulSucio1.jpg" alt="Nike azul sucio vista 1">
+                        <img src="img/nikeAzulSucio1.jpg" alt="Nike azul sucio vista 1" data-lightbox-image>
                       </figure>
                       <figure class="gallery-photo">
-                        <img src="img/nikeAzulSucio2.jpg" alt="Nike azul sucio vista 2">
+                        <img src="img/nikeAzulSucio2.jpg" alt="Nike azul sucio vista 2" data-lightbox-image>
                       </figure>
                     </div>
                   </section>
@@ -342,10 +401,10 @@
                     </div>
                     <div class="gallery-block__grid">
                       <figure class="gallery-photo">
-                        <img src="img/NikeAzulLimpio1.jpg" alt="Nike azul limpio vista 1">
+                        <img src="img/NikeAzulLimpio1.jpg" alt="Nike azul limpio vista 1" data-lightbox-image>
                       </figure>
                       <figure class="gallery-photo">
-                        <img src="img/NikeAzulLimpio2.jpg" alt="Nike azul limpio vista 2">
+                        <img src="img/NikeAzulLimpio2.jpg" alt="Nike azul limpio vista 2" data-lightbox-image>
                       </figure>
                     </div>
                   </section>
@@ -368,7 +427,7 @@
 
                 <div class="gallery-slide__content">
                   <figure class="gallery-photo gallery-photo--feature">
-                    <img src="img/travis.jpg" alt="Tenis Travis destacado despues del servicio">
+                    <img src="img/travis.jpg" alt="Tenis Travis destacado despues del servicio" data-lightbox-image>
                   </figure>
                 </div>
               </article>
@@ -448,6 +507,14 @@
         <span>Limpieza editorial para pares que si importan.</span>
       </div>
     </footer>
+  </div>
+
+  <div class="image-lightbox" data-image-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen ampliada" inert>
+    <button class="image-lightbox__backdrop" type="button" data-lightbox-close aria-label="Cerrar imagen ampliada"></button>
+    <figure class="image-lightbox__frame">
+      <button class="image-lightbox__close" type="button" data-lightbox-close aria-label="Cerrar imagen ampliada">Cerrar</button>
+      <img src="" alt="" data-lightbox-preview>
+    </figure>
   </div>
 
   <script src="script.js"></script>
